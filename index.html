@@ -29,12 +29,20 @@
   .row { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
   #result td:last-child { text-align:center; }
   a { color:var(--accent); }
+  figure { margin:12px 0; }
+  figure img { max-width:100%; border:1px solid var(--line); border-radius:6px; display:block; }
+  figcaption { font-size:.85rem; color:var(--muted); margin-top:4px; }
 </style>
 </head>
 <body>
 <main>
   <h1>陳竑睿 414210574</h1>
   <p class="sub">數值方法：目標達成評分制作業　總分 <span class="score-big" id="totalTop">100</span> 分</p>
+
+  <section>
+    <h2>作業題目</h2>
+    <figure><img src="images/00_assignment.png" alt="作業題目：目標達成評分制（五題，各 20 分）"><figcaption>作業題目：目標達成評分制（五題，各 20 分）</figcaption></figure>
+  </section>
 
   <section>
     <h2>一、指揮 AI 寫出 1 加到 N 的 Fortran 程式並編譯執行（20 分）</h2>
@@ -57,6 +65,11 @@ end program sum_1_to_n</code></pre>
 10
  1 + 2 + ... +           10  =                    55</code></pre>
     <p>結果：輸入 N = 10 得到 55，與 10×11/2 = 55 相符。<span class="tag pass">達標</span></p>
+    <figure><img src="images/01_cygwin_check.png" alt="檢查環境：Cygwin 裡找不到 gfortran"><figcaption>檢查環境：Cygwin 裡找不到 gfortran</figcaption></figure>
+    <figure><img src="images/02_gitbash_check.png" alt="檢查環境：Git Bash 有 git，但沒有 Fortran 編譯器"><figcaption>檢查環境：Git Bash 有 git，但沒有 Fortran 編譯器</figcaption></figure>
+    <figure><img src="images/03_install_gfortran.png" alt="用 Anaconda 安裝 gfortran 5.3.0 成功"><figcaption>用 Anaconda 安裝 gfortran 5.3.0 成功</figcaption></figure>
+    <figure><img src="images/04_compile_verbose.png" alt="編譯 sum.f90 成功（錯誤碼 0）"><figcaption>編譯 sum.f90 成功（錯誤碼 0）</figcaption></figure>
+    <figure><img src="images/05_run_and_test.png" alt="執行 sum.exe：輸入 10 得到 55"><figcaption>執行 sum.exe：輸入 10 得到 55</figcaption></figure>
   </section>
 
   <section>
@@ -67,6 +80,7 @@ Test 1: N=78513, program=3082184841, expected=3082184841, PASS
 Test 2: N=34430, program=592729665, expected=592729665, PASS
 Test 3: N=4972, program=12362878, expected=12362878, PASS</code></pre>
     <p>結果：三次隨機測試全部通過。<span class="tag pass">達標</span></p>
+    <figure><img src="images/05_run_and_test.png" alt="python test.py：三次隨機測試全部 PASS"><figcaption>python test.py：三次隨機測試全部 PASS</figcaption></figure>
   </section>
 
   <section>
@@ -76,6 +90,8 @@ Test 3: N=4972, program=12362878, expected=12362878, PASS</code></pre>
 7325eec (HEAD -&gt; master) v2: add line-by-line comments, compiled and verified
 1585ab1 v1: original sum 1 to N program</code></pre>
     <p>結果：兩個版本都已記錄。<span class="tag pass">達標</span></p>
+    <figure><img src="images/06_git_v1.png" alt="git init 並記錄原版 v1（1585ab1）"><figcaption>git init 並記錄原版 v1（1585ab1）</figcaption></figure>
+    <figure><img src="images/07_git_v2.png" alt="逐行註解後重新編譯、測試，記錄為 v2（7325eec）"><figcaption>逐行註解後重新編譯、測試，記錄為 v2（7325eec）</figcaption></figure>
   </section>
 
   <section>
