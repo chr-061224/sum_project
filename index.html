@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>陳竑睿 414210574 100分</title>
+<style>
+  :root { --bg:#f7f7f5; --card:#fff; --ink:#1f2328; --muted:#5f6670; --line:#e3e3e0; --ok:#1a7f37; --bad:#cf222e; --accent:#0969da; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:"Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif; line-height:1.7; }
+  main { max-width:860px; margin:0 auto; padding:24px 16px 64px; }
+  h1 { font-size:1.6rem; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 24px; }
+  .score-big { display:inline-block; font-size:2.4rem; font-weight:700; color:var(--ok); }
+  section { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:18px 20px; margin:16px 0; }
+  h2 { font-size:1.15rem; margin:0 0 8px; }
+  .q { color:var(--muted); font-size:.95rem; margin:0 0 10px; }
+  pre { background:#f0f1f3; border-radius:6px; padding:12px; overflow-x:auto; font-size:.85rem; line-height:1.45; }
+  code { font-family:Consolas,"Courier New",monospace; }
+  .tag { display:inline-block; padding:1px 10px; border-radius:99px; font-size:.85rem; font-weight:600; }
+  .pass { background:#dafbe1; color:var(--ok); }
+  .fail { background:#ffebe9; color:var(--bad); }
+  table { border-collapse:collapse; width:100%; font-size:.92rem; }
+  th, td { border:1px solid var(--line); padding:6px 8px; text-align:left; }
+  th { background:#f6f8fa; }
+  input[type=text], input[type=number] { width:100%; padding:6px 8px; border:1px solid #c9ccd1; border-radius:6px; font:inherit; }
+  label { display:block; margin:8px 0 2px; font-size:.9rem; color:var(--muted); }
+  button { margin-top:12px; padding:8px 18px; border:0; border-radius:6px; background:var(--accent); color:#fff; font:inherit; cursor:pointer; }
+  .row { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  #result td:last-child { text-align:center; }
+  a { color:var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>陳竑睿 414210574</h1>
+  <p class="sub">數值方法：目標達成評分制作業　總分 <span class="score-big" id="totalTop">100</span> 分</p>
+
+  <section>
+    <h2>一、指揮 AI 寫出 1 加到 N 的 Fortran 程式並編譯執行（20 分）</h2>
+    <p class="q">過程：AI 確認學校電腦沒有 Fortran 編譯器，指揮我用 Anaconda 安裝 gfortran 5.3.0（<code>conda install -c msys2 m2w64-gcc-fortran</code>），再寫出程式 <code>sum.f90</code>。</p>
+<pre><code>program sum_1_to_n
+  implicit none
+  integer :: n, i
+  integer(kind=8) :: total
+  write(*,*) 'Please input N:'
+  read(*,*) n
+  total = 0
+  do i = 1, n
+     total = total + i
+  end do
+  write(*,*) '1 + 2 + ... + ', n, ' = ', total
+end program sum_1_to_n</code></pre>
+<pre><code>&gt; gfortran sum.f90 -o sum.exe
+&gt; .\sum.exe
+ Please input N:
+10
+ 1 + 2 + ... +           10  =                    55</code></pre>
+    <p>結果：輸入 N = 10 得到 55，與 10×11/2 = 55 相符。<span class="tag pass">達標</span></p>
+  </section>
+
+  <section>
+    <h2>二、指揮 AI 執行三次隨機驗證（20 分）</h2>
+    <p class="q">過程：AI 寫了 <code>test.py</code>，隨機產生 N，把程式輸出和公式 N(N+1)/2 比對。</p>
+<pre><code>&gt; python test.py
+Test 1: N=78513, program=3082184841, expected=3082184841, PASS
+Test 2: N=34430, program=592729665, expected=592729665, PASS
+Test 3: N=4972, program=12362878, expected=12362878, PASS</code></pre>
+    <p>結果：三次隨機測試全部通過。<span class="tag pass">達標</span></p>
+  </section>
+
+  <section>
+    <h2>三、Git 版本控制：原版 commit，逐行註解後再 commit（20 分）</h2>
+    <p class="q">過程：<code>git init</code> 後把原版記錄為 v1；AI 對每一行加上中文註解，重新編譯並再跑三次隨機測試（N = 91490、17711、3418 全部 PASS），記錄為 v2。</p>
+<pre><code>&gt; git log --oneline
+7325eec (HEAD -&gt; master) v2: add line-by-line comments, compiled and verified
+1585ab1 v1: original sum 1 to N program</code></pre>
+    <p>結果：兩個版本都已記錄。<span class="tag pass">達標</span></p>
+  </section>
+
+  <section>
+    <h2>四、把本地端的版本庫上傳到 GitHub（20 分）</h2>
+    <p class="q">過程：在 GitHub 建立 repository，<code>git remote add origin</code> 後 <code>git push</code>。</p>
+<pre><code>&gt; git remote add origin https://github.com/chr-061224/sum_project.git
+&gt; git branch -M main
+&gt; git push -u origin main</code></pre>
+    <p>GitHub 網址：<a href="https://github.com/chr-061224/sum_project">https://github.com/chr-061224/sum_project</a>　<span class="tag pass">達標</span></p>
+  </section>
+
+  <section>
+    <h2>五、AI 製作的任務達成評分系統（20 分）</h2>
+    <p class="q">輸入前四題的結果，系統會自動判斷是否達標並給分。下面已填入本次作業的實際結果，按「評分」就會重新計算。</p>
+
+    <label>第一題：輸入的 N</label>
+    <div class="row"><input type="number" id="q1n" value="10"><input type="text" id="q1out" value="55" placeholder="程式輸出"></div>
+
+    <label>第二題：三次隨機測試（N／程式輸出）</label>
+    <div class="row"><input type="number" id="t1n" value="78513"><input type="text" id="t1o" value="3082184841"></div>
+    <div class="row" style="margin-top:6px"><input type="number" id="t2n" value="34430"><input type="text" id="t2o" value="592729665"></div>
+    <div class="row" style="margin-top:6px"><input type="number" id="t3n" value="4972"><input type="text" id="t3o" value="12362878"></div>
+
+    <label>第三題：原版 commit／註解版 commit</label>
+    <div class="row"><input type="text" id="c1" value="1585ab1"><input type="text" id="c2" value="7325eec"></div>
+
+    <label>第四題：GitHub repository 網址</label>
+    <input type="text" id="gh" value="https://github.com/chr-061224/sum_project">
+
+    <button onclick="grade()">評分</button>
+
+    <table id="result" style="margin-top:14px">
+      <thead><tr><th>題目</th><th>判斷標準</th><th>得分</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+</main>
+
+<script>
+function sumTo(n){ n = BigInt(n); return n*(n+1n)/2n; }
+function ok(n, out){
+  try { return n !== "" && Number(n) >= 1 && BigInt(String(out).trim()) === sumTo(n); }
+  catch(e){ return false; }
+}
+function v(id){ return document.getElementById(id).value.trim(); }
+function grade(){
+  const rows = [];
+  const q1 = ok(v("q1n"), v("q1out"));
+  rows.push(["一、程式編譯執行", "輸出等於 N(N+1)/2", q1 ? 20 : 0]);
+
+  const ns = [v("t1n"), v("t2n"), v("t3n")];
+  const q2 = ok(ns[0], v("t1o")) && ok(ns[1], v("t2o")) && ok(ns[2], v("t3o")) && new Set(ns).size === 3;
+  rows.push(["二、三次隨機驗證", "三個不同的 N，輸出全部正確", q2 ? 20 : 0]);
+
+  const hex = /^[0-9a-f]{7,40}$/i;
+  const q3 = hex.test(v("c1")) && hex.test(v("c2")) && v("c1").toLowerCase() !== v("c2").toLowerCase();
+  rows.push(["三、Git 版本控制", "兩個不同且合法的 commit", q3 ? 20 : 0]);
+
+  const q4 = /^https:\/\/github\.com\/[A-Za-z0-9-]+\/[\w.-]+\/?$/.test(v("gh"));
+  rows.push(["四、上傳 GitHub", "合法的 GitHub repository 網址", q4 ? 20 : 0]);
+
+  const q5 = q1 || q2 || q3 || q4;
+  rows.push(["五、評分系統", "系統可輸入前四題結果並自動給分", q5 ? 20 : 0]);
+
+  const total = rows.reduce((s, r) => s + r[2], 0);
+  const tb = document.querySelector("#result tbody");
+  tb.innerHTML = rows.map(r =>
+    `<tr><td>${r[0]}</td><td>${r[1]}</td><td><span class="tag ${r[2] ? "pass" : "fail"}">${r[2]}</span></td></tr>`
+  ).join("") + `<tr><th colspan="2">總分</th><th style="text-align:center">${total}</th></tr>`;
+  document.getElementById("totalTop").textContent = total;
+}
+grade();
+</script>
+</body>
+</html>
